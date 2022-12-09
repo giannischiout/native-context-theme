@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, Pressable, Text } from "react-native";
-import TextPlain from "./Text/TextPlain";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 
 const Button = (props) => {
@@ -9,7 +8,7 @@ const Button = (props) => {
 
   return (
     <Pressable style={[styles.button, styles[theme]]} onPress={toggleTheme}>
-      <TextPlain>{props.text}</TextPlain>
+      <Text style={[styles[`text${theme}`]]}>{props.text}</Text>
     </Pressable>
   )
 }
@@ -22,11 +21,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  Light: {
+  light: {
     backgroundColor: 'black'
   },
-  Dark: {
+  dark: {
     backgroundColor: 'white'
-  }
+  },
+  textlight: {
+    color: 'white'
+  },
+  textdark: {
+    color: 'black'
+  },
 });
 export default Button;

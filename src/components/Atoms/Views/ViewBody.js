@@ -6,10 +6,9 @@ import { ThemeContext } from "../../../context/theme-context/theme-context";
 
 const ViewBody = (props) => {
   const { theme } = useContext(ThemeContext)
-  console.log('body' + theme)
   return (
 
-    <View style={[styles.body, styles[`container${theme}`]]}>
+    <View style={[styles.body, styles[theme]]}>
       {console.log(theme)}
       {props.children}
     </View>
@@ -24,10 +23,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
-  containerLight: {
+  light: {
     backgroundColor: 'white'
   },
-  containerDark: {
+  dark: {
     backgroundColor: 'black'
   }
 });
